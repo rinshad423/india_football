@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <div id="slider">
+        <figure>
+            <img src="3616014.jpg">
+            <img src="3616017.jpg">
+            <img src="3616020.jpg">
+            <img src="3616033.jpg">
+            <img src="3616059.jpg" alt="">
+        </figure>
+
+        <button class="btn-prev"><i class="bi bi-arrow-left-circle"></i> </button>
+        <button class="btn-next"><i class="bi bi-arrow-right-circle"></i> </button>
+
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var x = 0;
+            $('.btn-next').click(function () {
+                x = (x <= 300) ? (x + 100) : 0;
+                $('figure').css('left', -x + '%');
+            });
+
+            $('.btn-prev').click(function () {
+                x = (x >= 100) ? (x - 100) : 400;
+                $('figure').css('left', -x + '%');
+            });
+        });
+    </script>
+
+    <style>
+        #slider {
+            width: 90%;
+            height: 600px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px 3px grey;
+            position: relative;
+        }
+
+
+        div#slider {
+            overflow: hidden;
+        }
+
+        div#slider figure img {
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+
+        div#slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            transition: 1s ease-in-out;
+        }
+
+        .btn-next,
+        .btn-prev {
+            position: absolute;
+            top: 45%;
+            cursor: pointer;
+            color: rgb(250, 250, 250);
+            background:none;
+            padding: 20px;
+            font-size: 50px;
+            border: none;
+        }
+
+        .btn-prev {
+            left: 0px;
+        }
+
+        .btn-next {
+            right: 0px;
+        }
+    </style>
+</body>
+
+</html>
